@@ -1,6 +1,6 @@
-from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('posts/', include('api.post.urls'))
+    path('posts/', include('api.post.urls')),
+    path('user/', include('api.user.urls')),
 ]
