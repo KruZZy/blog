@@ -20,7 +20,7 @@ export class ConsumeApiService {
   }
 
   getPost(id: number) {
-    return this.http.get<any>(this.apiUrl + "/" + id)
+    return this.http.get<any>(this.apiUrl + "/posts/" + id)
   }
 
 }

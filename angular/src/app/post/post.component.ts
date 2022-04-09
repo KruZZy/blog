@@ -16,8 +16,7 @@ export class PostComponent implements OnInit {
   }
 
   refreshPostList() {
-    this.service.getPostList().subscribe(posts => {
-      console.log(posts);
+    this.service.getPostList().subscribe((posts : any) => {
       this.postList = posts.results;
     });
   }

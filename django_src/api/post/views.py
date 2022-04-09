@@ -36,6 +36,7 @@ class PostAPI(ListCreateAPIView):
 
 class PostRetrieveUpdateDestroyAPI(RetrieveUpdateDestroyAPIView):
     serializer_class = serializer.postSerializer
+    permission_classes = (AllowAny,)
 
     def get_queryset(self) -> QuerySet:
         """
@@ -43,7 +44,7 @@ class PostRetrieveUpdateDestroyAPI(RetrieveUpdateDestroyAPIView):
         :return: a post object by an ID, if it exists.
         An HTTP response with status 404 if it doesn't.
         """
-        return post.objects.filter(id=self.kwargs.get('pk', None))
+        return post.objects.filter(id=self.kwargs.get('pk', None)).select_related('author');
 
     def update(self, request, *args, **kwargs) -> Response:
         partial = kwargs.pop('partial', False)

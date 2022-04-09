@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="blogdb" uuid="53fcb862-8a85-436a-92db-5514197b4cb9">
+    <data-source source="LOCAL" name="blogdb" uuid="f149ee01-940a-4ece-ab0c-25f84cb7d7d0">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/blogdb</jdbc-url>
+      <jdbc-url>jdbc:sqlite:E:\git_reps\blog\django_src\blogdb</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

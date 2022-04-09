@@ -3,6 +3,6 @@
 
 <ul>
   <li *ngFor="let post of postList">
-    {{post.title}} - {{post.text}}
+    <a [routerLink]="'/posts/view/' + post.id"> {{post.title}} </a>- {{post.text}}
   </li>
 </ul>
