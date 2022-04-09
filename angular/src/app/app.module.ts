@@ -10,6 +10,13 @@ import {ViewComponent} from './post/view/view.component';
 
 /** services go here **/
 import {ConsumeApiService} from "./consume-api.service";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {MatListModule} from "@angular/material/list";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 @NgModule({
@@ -21,7 +28,14 @@ import {ConsumeApiService} from "./consume-api.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatListModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
   ],
   providers: [ConsumeApiService],
   bootstrap: [AppComponent]

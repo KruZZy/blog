@@ -1,8 +1,8 @@
 
 <h2>All posts</h2>
 
-<ul>
-  <li *ngFor="let post of postList">
-    <a [routerLink]="'/posts/view/' + post.id"> {{post.title}} </a>- {{post.text}}
-  </li>
-</ul>
+<mat-selection-list #posts [multiple]="false">
+  <mat-list-option [routerLink]="'/posts/view/' + post.id" *ngFor="let post of postList" [value]="post">
+    {{post.title}} by {{post.author.username}}
+  </mat-list-option>
+</mat-selection-list>
