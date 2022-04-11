@@ -36,7 +36,6 @@ class PostAPI(ListCreateAPIView):
 
 class PostRetrieveUpdateDestroyAPI(RetrieveUpdateDestroyAPIView):
     serializer_class = serializer.postSerializer
-    permission_classes = (AllowAny,)
 
     def get_queryset(self) -> QuerySet:
         """

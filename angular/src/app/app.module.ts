@@ -1,7 +1,7 @@
 /** modules go here **/
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 /** components go here **/
 import {AppComponent} from './app.component';
@@ -17,13 +17,19 @@ import {MatListModule} from "@angular/material/list";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {UserComponent} from './user/user.component';
+import {LoginComponent} from './user/login/login.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
-    ViewComponent
+    ViewComponent,
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +42,12 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
+    ReactiveFormsModule,
   ],
-  providers: [ConsumeApiService],
+  providers: [
+    ConsumeApiService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
