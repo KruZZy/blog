@@ -2,27 +2,32 @@
   <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>My App</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
+  <span>Blog</span>
+  <span class="toolbar-spacer"></span>
+
+  <ng-template *ngIf="[authService.isLoggedIn()]">
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </ng-template>
 </mat-toolbar>
 
 <mat-drawer-container class="example-container" autosize >
   <mat-drawer #drawer class="example-sidenav" mode="side" style="padding: 16px">
-    <button mat-raised-button color="primary" routerLink="posts/all">See all posts </button>
+    <mat-nav-list>
+
+      <a mat-list-item *ngFor="let route of routes" [routerLinkActiveOptions]="{exact: true}" [routerLink]="[route.path]" [routerLinkActive]="['list-item-active']">
+        <i class="{{route.icon}}"></i>
+
+        <span class="label"> {{route.name}} {{authService.isLoggedOut()}}</span>
+      </a>
+    </mat-nav-list>
 
   </mat-drawer>
 
-  <div class="example-sidenav-content" style="min-height: 1000px">
+  <div class="example-sidenav-content" style="min-height: 1200px">
     <router-outlet></router-outlet>
   </div>
 
 
 </mat-drawer-container>
-
-

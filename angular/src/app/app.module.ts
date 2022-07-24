@@ -7,7 +7,6 @@ import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from './app.component';
 import {PostComponent} from './post/post.component';
 import {ViewComponent} from './post/view/view.component';
-
 /** services go here **/
 import {ConsumeApiService} from "./consume-api.service";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
