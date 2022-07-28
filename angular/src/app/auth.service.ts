@@ -27,12 +27,14 @@ export class AuthService {
     localStorage.setItem('token_access', res.access);
     localStorage.setItem('token_refresh', res.refresh);
     localStorage.setItem('token_expiration', JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem('logged_id', res.id);
   }
 
   logout() {
     localStorage.removeItem('token_access');
     localStorage.removeItem('token_refresh');
     localStorage.removeItem('token_expiration');
+    localStorage.removeItem('logged_id');
   }
 
   public isLoggedIn() {
