@@ -1,7 +1,7 @@
 from django.db.models import QuerySet
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from blog.models import post
@@ -9,7 +9,7 @@ from . import serializer
 
 
 class PostAPI(ListCreateAPIView):
-    serializer_class = serializer.postSerializer
+    serializer_class = serializer.PostSerializer
     permission_classes = (IsAuthenticated, )
 
     def get_queryset(self) -> QuerySet:
@@ -35,8 +35,8 @@ class PostAPI(ListCreateAPIView):
 
 
 class PostRetrieveUpdateDestroyAPI(RetrieveUpdateDestroyAPIView):
-    serializer_class = serializer.postSerializer
-    permission_classes = (IsAdminUser,)
+    serializer_class = serializer.PostSerializer
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self) -> QuerySet:
         """

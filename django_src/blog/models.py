@@ -11,7 +11,7 @@ class timeStampModel(models.Model):
         abstract = True
 
 
-class profile(models.Model):
+class profile(timeStampModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     description = models.TextField()
 

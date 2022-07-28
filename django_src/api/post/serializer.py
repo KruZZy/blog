@@ -4,7 +4,7 @@ from api.user.serializer import UserSerializer
 from blog.models import post
 
 
-class postSerializer(serializers.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     author = UserSerializer(many=False)
 
     class Meta:
